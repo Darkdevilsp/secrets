@@ -9,6 +9,7 @@ const passport = require("passport");
 const passportLocalMongoose = require("passport-local-mongoose");
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const findOrCreate = require('mongoose-findorcreate');
+const cors = require("cors");
 
 const app = express();
 
@@ -69,6 +70,7 @@ passport.use(new GoogleStrategy({
 ));
 
 app.get("/", function (req, res) {
+  res.sendHeader("Access-Control-Allow-Credentials", "true");
   res.render("home");
 });
 
