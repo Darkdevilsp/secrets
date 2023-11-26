@@ -70,7 +70,6 @@ passport.use(new GoogleStrategy({
 ));
 
 app.get("/", function (req, res) {
-  res.sendHeader("Access-Control-Allow-Credentials", "true");
   res.render("home");
 });
 
